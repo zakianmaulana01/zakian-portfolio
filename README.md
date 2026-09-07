@@ -1,57 +1,111 @@
-# Zakian Maulana Syaifulloh · CV & Portofolio
+<div align="center">
+  <img src="./public/brand-mark.svg" width="76" height="76" alt="Ikon kode Zakian" />
+  <h1>zakian-portfolio</h1>
+  <p><strong>CV interaktif dan portfolio personal Zakian Maulana Syaifulloh</strong></p>
+  <p>Website recruiter-facing yang memperkenalkan perjalanan, keahlian, pengalaman kerja, pendidikan, dan project yang pernah dibangun.</p>
+  <p>
+    <a href="https://github.com/zakianmaulana01/zakian-portfolio"><img src="https://img.shields.io/github/repo-size/zakianmaulana01/zakian-portfolio?style=flat-square&color=315efb&label=ukuran%20repo" alt="Ukuran repository" /></a>
+    <a href="https://github.com/zakianmaulana01/zakian-portfolio"><img src="https://img.shields.io/badge/status-personal%20portfolio-315efb?style=flat-square" alt="Status personal portfolio" /></a>
+    <img src="https://img.shields.io/badge/Next.js-16-192238?style=flat-square&logo=next.js&logoColor=white" alt="Next.js 16" />
+    <img src="https://img.shields.io/badge/TypeScript-React-3178c6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript dan React" />
+  </p>
+</div>
 
-Website personal berbahasa Indonesia dengan tema putih-biru, aksen editor kode, dan animasi berulang di beberapa bagian. Dibangun menggunakan Next.js, React, TypeScript, Tailwind CSS, dan Motion.
+## ✦ Tentang project ini
 
-## Isi website
+`zakian-portfolio` adalah website personal yang dibuat sebagai gabungan antara **CV digital** dan **portfolio project**. Alur halaman sengaja dimulai dari perkenalan diri, lalu membawa recruiter melihat keahlian, pengalaman kerja, pendidikan, dan hasil pekerjaan secara bertahap.
 
-1. Perkenalan, nama lengkap, ringkasan profil, dan editor kode interaktif.
-2. Tentang saya dan ilustrasi proses kerja.
-3. Keahlian dengan diagram teknologi bergerak.
-4. Pengalaman kerja dalam linimasa.
-5. Pendidikan.
-6. Proyek pilihan, filter kategori, dan dialog detail.
-7. Kontak email, LinkedIn, dan GitHub.
+Desainnya memakai tema terang putih-biru dengan aksen editor kode agar terasa dekat dengan dunia pengembangan software, tetapi tetap nyaman dibaca seperti CV profesional. Seluruh konten ditulis dalam bahasa Indonesia dan informasi profesionalnya bersumber dari profil LinkedIn serta repository GitHub Zakian.
 
-Halaman `/resume` menyajikan CV teks dengan tombol **Cetak / Simpan PDF** dan gaya cetak A4.
+## ✨ Yang bisa dilihat recruiter
 
-## Menjalankan secara lokal
+- **Perkenalan yang langsung jelas** — nama, role, lokasi, ringkasan, dan tombol untuk membuka CV.
+- **Aksen coding yang punya fungsi** — editor `profil.ts` dan `stack.ts`, label teknologi, dan potongan kode yang membantu membangun karakter developer.
+- **Animasi yang terus hidup** — efek mengetik role, editor melayang, orbit teknologi, alur workflow, linimasa karier, aliran data SCADA, transaksi POS, dan percakapan realtime.
+- **Project dengan konteks** — setiap kartu menjelaskan tujuan, teknologi, highlight fitur, serta link langsung ke source code.
+- **CV siap kirim** — route `/resume` memiliki layout CV bersih dan tombol `Cetak / Simpan PDF` dengan stylesheet A4.
+- **Kontak yang mudah dijangkau** — email, LinkedIn, dan GitHub tersedia di bagian akhir halaman.
+- **Responsif dan aksesibel** — navigasi mobile, native dialog untuk detail project, focus state, semantic HTML, dan dukungan `prefers-reduced-motion`.
 
-Gunakan Node.js 20.9 atau yang lebih baru.
+## 🧩 Project yang ditampilkan
+
+| Project                                                                             | Fokus                                                   | Teknologi utama                           |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------- |
+| [BAYARO POS](https://github.com/zakianmaulana01/REACTJS-LANDING-PAGE-BAYARO)        | Website produk UMKM dan simulator kasir interaktif      | React, TypeScript, Tailwind CSS, Motion   |
+| [Industrial SCADA](https://github.com/zakianmaulana01/NEXTJS-PLC-MANY)              | Dashboard pemantauan dan editor visual sistem industri  | Next.js, React Flow, Recharts, TypeScript |
+| [Laravel Multiuser Chat](https://github.com/zakianmaulana01/LARAVEL-CHAT-MULTIUSER) | Aplikasi percakapan realtime dengan role dan notifikasi | Laravel, Vue 3, MySQL, Pusher             |
+
+> Ilustrasi pada kartu project adalah **visual konsep** berbasis HTML/CSS, bukan screenshot produk. Project SCADA memakai telemetri simulasi sesuai README repository publiknya.
+
+## 🛠️ Teknologi dan struktur
+
+| Bagian    | Pilihan                                                            |
+| --------- | ------------------------------------------------------------------ |
+| Framework | Next.js 16 App Router                                              |
+| UI        | React 19, TypeScript, Tailwind CSS v4                              |
+| Motion    | Motion untuk interaksi pointer dan CSS keyframes untuk loop visual |
+| Ikon      | Phosphor Icons                                                     |
+| Font      | Manrope dan Space Grotesk, disajikan lokal                         |
+| Konten    | Data lokal tanpa database atau API key                             |
+
+```text
+src/
+├── app/
+│   ├── page.tsx              # Halaman utama CV + portfolio
+│   ├── resume/page.tsx       # CV printable
+│   ├── globals.css           # Design system, responsive layout, animation
+│   └── opengraph-image.tsx   # Social preview putih-biru
+├── components/
+│   ├── developer-scenes.tsx  # Editor kode dan visual project
+│   ├── projects.tsx          # Filter dan dialog detail project
+│   ├── navigation.tsx        # Desktop + mobile navigation
+│   └── contact.tsx            # Email copy dan kontrol motion
+└── data/portfolio.ts         # Profil, experience, education, skills, projects
+```
+
+## 🚀 Menjalankan secara lokal
+
+Butuh Node.js `20.9+`.
 
 ```bash
+git clone https://github.com/zakianmaulana01/zakian-portfolio.git
+cd zakian-portfolio
 npm install
 npm run dev -- --port 3001
 ```
 
-Buka `http://127.0.0.1:3001`. Untuk produksi, gunakan `npm run build` lalu `npm run start`.
+Buka [http://127.0.0.1:3001](http://127.0.0.1:3001).
 
-Website tidak membutuhkan akun, API key, atau database. Data disimpan lokal. Tautan email membuka aplikasi email pengunjung.
+Perintah yang tersedia:
 
-## Mengubah konten dan tampilan
+```bash
+npm run dev       # Development server
+npm run build     # Production build
+npm run start     # Menjalankan hasil build
+npm run lint      # Pemeriksaan ESLint
+npm run typecheck # Pemeriksaan TypeScript
+npm run test:e2e  # Browser test dengan Playwright
+```
 
-- `src/data/portfolio.ts`: profil, kontak, keahlian, pengalaman, pendidikan, dan proyek.
-- `src/app/page.tsx`: susunan halaman utama.
-- `src/app/resume/page.tsx`: CV untuk dicetak.
-- `src/components/developer-scenes.tsx`: editor kode dan ilustrasi animasi.
-- `src/app/globals.css`: palet warna, tata letak responsif, animasi, dan gaya cetak.
+Pemeriksaan terakhir pada commit aktif: `build` dan `lint` berhasil.
 
-Tema selalu terang. Tombol animasi di footer menyimpan preferensi jeda. Preferensi sistem untuk mengurangi gerakan juga dihormati. Ilustrasi animasi dijeda ketika di luar area pandang atau tab tidak aktif. Font disajikan secara lokal melalui `next/font`.
+## ✍️ Mengubah isi portfolio
 
-## Sumber konten
+Edit [src/data/portfolio.ts](./src/data/portfolio.ts) untuk mengganti nama, ringkasan, kontak, keahlian, pengalaman, pendidikan, dan project. Struktur visual utama ada di [src/app/page.tsx](./src/app/page.tsx), sedangkan warna, breakpoint, dan animasi ada di [src/app/globals.css](./src/app/globals.css).
 
-- [Profil LinkedIn](https://www.linkedin.com/in/zakian-maulana-syaifulloh/)
-- [GitHub Zakian](https://github.com/zakianmaulana01)
-- [BAYARO POS](https://github.com/zakianmaulana01/REACTJS-LANDING-PAGE-BAYARO)
-- [Industrial SCADA](https://github.com/zakianmaulana01/NEXTJS-PLC-MANY)
-- [Laravel Multiuser Chat](https://github.com/zakianmaulana01/LARAVEL-CHAT-MULTIUSER)
-- Email diberikan langsung oleh pemilik.
+Tema dibuat terang secara sengaja. Tombol animasi di footer dapat menjeda seluruh loop, dan browser dengan preferensi reduced motion akan otomatis melihat versi yang lebih tenang.
 
-Ilustrasi proyek dibuat dengan elemen HTML/CSS dan diberi label **Visual konsep**. Ilustrasi tersebut bukan tangkapan layar aplikasi. Aset gambar dari desain sebelumnya masih tersedia di `public/images/`, tetapi tidak digunakan pada desain ini.
+## 📌 Catatan konten
 
-SCADA dijelaskan sebagai simulasi telemetri dengan fondasi integrasi PLC, sesuai README publiknya. Tidak ada metrik hasil, testimoni, sertifikasi, atau tanggung jawab pekerjaan yang dibuat-buat. Proyek ditautkan ke repository agar pengunjung dapat melihat implementasinya.
+- Profil profesional: [LinkedIn Zakian](https://www.linkedin.com/in/zakian-maulana-syaifulloh/)
+- Source code dan avatar: [GitHub Zakian](https://github.com/zakianmaulana01)
+- Email kontak diberikan langsung oleh pemilik portfolio.
+- Tidak ada metrik performa, testimonial, sertifikasi, client, atau live demo yang ditambahkan tanpa sumber yang terverifikasi.
 
-## Publikasi dan status pemeriksaan
+## 📬 Kontak
 
-Website belum dipublikasikan. Saat deployment, isi `NEXT_PUBLIC_SITE_URL` dengan domain HTTPS tujuan; URL produksi Vercel menjadi cadangan otomatis.
+**Zakian Maulana Syaifulloh** · Web Developer / IT Programmer
 
-Sesuai permintaan pemilik, revisi putih-biru berbahasa Indonesia ini dikerjakan **tanpa menjalankan build, lint, tes, atau pemeriksaan browser**. Pemilik akan mencoba tampilannya langsung. Perintah pemeriksaan yang tersedia: `npm run typecheck`, `npm run lint`, dan `npm run test:e2e`.
+- Email: [zakianmaulana2001@gmail.com](mailto:zakianmaulana2001@gmail.com)
+- LinkedIn: [linkedin.com/in/zakian-maulana-syaifulloh](https://www.linkedin.com/in/zakian-maulana-syaifulloh/)
+- GitHub: [github.com/zakianmaulana01](https://github.com/zakianmaulana01)
