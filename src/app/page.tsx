@@ -54,7 +54,7 @@ export default function Home() {
           <div className="container hero-grid">
             <div className="hero-copy">
               <div className="hero-eyebrow">
-                <span className="code-slash">//</span> KENALAN DULU, YUK.
+                <span className="code-slash">{"//"}</span> KENALAN DULU, YUK.
               </div>
               <h1 id="hero-title">
                 Halo, saya
