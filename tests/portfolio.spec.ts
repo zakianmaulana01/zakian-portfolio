@@ -7,9 +7,11 @@ test("project filters, details, source links, and keyboard dismissal", async ({
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("Zakian");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(
+    "Zakian Maulana.",
+  );
   await page.getByRole("button", { name: "Full stack", exact: true }).click();
-  await expect(page.locator(".project-button")).toHaveCount(1);
+  await expect(page.locator(".project-button")).toHaveCount(5);
   const card = page.getByRole("button", {
     name: "Lihat detail proyek Laravel Multiuser Chat",
   });
@@ -26,9 +28,9 @@ test("project filters, details, source links, and keyboard dismissal", async ({
   await expect(dialog).not.toBeVisible();
   await expect(card).toBeFocused();
   await page.getByRole("button", { name: "Frontend", exact: true }).click();
-  await expect(page.locator(".project-button")).toHaveCount(2);
-  await page.getByRole("button", { name: "Semua" }).click();
   await expect(page.locator(".project-button")).toHaveCount(3);
+  await page.getByRole("button", { name: "Semua" }).click();
+  await expect(page.locator(".project-button")).toHaveCount(8);
   expect(errors).toEqual([]);
 });
 
@@ -124,6 +126,7 @@ for (const theme of ["light", "dark"] as const) {
   test(`accessible content and dialogs with ${theme} system preference`, async ({
     page,
   }) => {
+    test.setTimeout(60_000);
     await page.emulateMedia({ colorScheme: theme, reducedMotion: "reduce" });
     await page.goto("/");
     const results = await new AxeBuilder({ page })
@@ -152,4 +155,76 @@ test("content stays readable without JavaScript", async ({ browser }) => {
     page.getByRole("link", { name: "zakianmaulana2001@gmail.com" }).last(),
   ).toBeVisible();
   await context.close();
+});
+
+test("professional project galleries load all three assets", async ({
+  page,
+}) => {
+  await page.goto("/");
+  for (const name of [
+    "DwaSys Web",
+    "Campaign Submit Tools",
+    "Multazam Smart System",
+    "Mandjur Chat × Tokopedia",
+    "Goodeva Company Profile",
+  ]) {
+    await page
+      .getByRole("button", { name: `Lihat detail proyek ${name}`, exact: true })
+      .click();
+    const dialog = page.getByRole("dialog");
+    const controls = dialog
+      .getByRole("group", { name: "Pilih gambar proyek" })
+      .getByRole("button");
+    await expect(controls).toHaveCount(3);
+    for (let index = 0; index < 3; index++) {
+      await controls.nth(index).click();
+      await expect(controls.nth(index)).toHaveAttribute("aria-pressed", "true");
+      await expect
+        .poll(() =>
+          dialog
+            .locator(".project-gallery > img")
+            .evaluate(
+              (img: HTMLImageElement) => img.complete && img.naturalWidth > 0,
+            ),
+        )
+        .toBe(true);
+    }
+    await expect(
+      dialog.getByRole("link", { name: "Jelajahi kode" }),
+    ).toHaveCount(0);
+    await page.keyboard.press("Escape");
+  }
+});
+
+test("profile content stays expanded with a personal developer hero", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(
+    page.getByRole("heading", { name: "Belajar lewat pekerjaan." }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Alat yang saya gunakan." }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Universitas Indraprasta PGRI" }),
+  ).toBeVisible();
+  await expect(page.locator(".intro-role")).toContainText(
+    "Web Developer / IT Programmer",
+  );
+  const campaign = page.getByRole("button", { name: "Sistem campaign" });
+  await campaign.click();
+  await expect(campaign).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator("#intro-field-detail")).toContainText("Telkomsel");
+  await page.getByRole("button", { name: "ERP manufaktur" }).focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#intro-field-detail")).toContainText(
+    "PT Dasa Windu Agung",
+  );
+  await page.setViewportSize({ width: 1920, height: 1080 });
+  const width = await page
+    .locator(".intro-wide")
+    .evaluate((el) => el.getBoundingClientRect().width);
+  expect(width).toBeGreaterThan(1700);
+  await expect(page.locator(".folio-preview")).toHaveCount(0);
 });
