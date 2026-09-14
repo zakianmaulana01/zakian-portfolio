@@ -76,7 +76,7 @@ export default function Home() {
             </span>
           </div>
           <a href="#about" className="hero-next">
-            Tentang saya
+            Kenali lebih jauh
             <ArrowRight size={20} />
           </a>
         </div>
