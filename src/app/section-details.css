@@ -1,0 +1,365 @@
+.recognition-section {
+  padding: 65px 0 75px;
+  border-top: 1px solid #dbe1eb;
+}
+.recognition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 55px);
+  margin-top: 35px;
+}
+.recognition-card {
+  min-width: 0;
+  perspective: 1000px;
+}
+.recognition-button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: #293342;
+  cursor: pointer;
+}
+.recognition-image {
+  position: relative;
+  height: clamp(220px, 23vw, 380px);
+  padding: 16px;
+  background: #f0f3f9;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.recognition-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 7px 8px #28355412);
+  transition: transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.recognition-expand {
+  position: absolute;
+  right: 13px;
+  bottom: 13px;
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  background: #fff;
+  border: 1px solid #cbd5e5;
+  border-radius: 50%;
+  color: #2858df;
+  transition:
+    transform 250ms,
+    background 250ms,
+    color 250ms;
+}
+.recognition-button:hover .recognition-expand {
+  transform: rotate(45deg);
+  color: #fff;
+  background: #2858df;
+}
+.recognition-caption {
+  padding: 23px 0 0;
+}
+.recognition-caption > span {
+  font-size: 11px;
+  color: #626e81;
+}
+.folio .recognition-caption h3 {
+  font-size: clamp(18px, 1.6vw, 28px);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.04em;
+  margin-top: 8px;
+}
+.recognition-caption p {
+  color: #5f6d83;
+  font-size: 13px;
+  margin-top: 9px;
+}
+.recognition-dialog {
+  max-width: min(1000px, 94vw);
+  max-height: 92dvh;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  border-radius: 12px;
+  background: #fff;
+  color: #273449;
+  overflow: auto;
+  margin: auto;
+}
+.recognition-dialog::backdrop {
+  background: #14223bd6;
+}
+.recognition-dialog-content {
+  padding: 50px 28px 25px;
+}
+.recognition-dialog-content > img {
+  display: block;
+  width: 100%;
+  max-height: 65dvh;
+  object-fit: contain;
+}
+.recognition-dialog-content > div {
+  padding: 25px 0 0;
+  max-width: 700px;
+  margin: auto;
+}
+.recognition-dialog-content h2 {
+  margin: 8px 0 12px;
+}
+.recognition-dialog-content p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.recognition-kind {
+  color: #586881;
+}
+.recognition-close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #cbd4e4;
+  background: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: #2e3d56;
+}
+.folio .project {
+  perspective: 1200px;
+}
+.folio .project .project-button,
+.recognition-button,
+.folio .folio-school {
+  transform: perspective(1200px) rotateX(var(--depth-y, 0deg))
+    rotateY(var(--depth-x, 0deg));
+  transition:
+    transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 300ms,
+    background 250ms;
+}
+.folio .project .project-button[data-depth-active],
+.recognition-button[data-depth-active] {
+  transition-duration: 100ms;
+}
+.folio .project .project-button:hover .project-screen img {
+  transform: scale(1.025);
+}
+.folio .project .project-screen img {
+  transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.folio .folio-career article {
+  transition: border-color 250ms;
+}
+.folio .folio-career article::before {
+  transition:
+    transform 250ms,
+    background 250ms,
+    box-shadow 250ms;
+}
+.folio .folio-career article:hover {
+  border-left-color: #2858df;
+}
+.folio .folio-career article:hover::before {
+  transform: scale(1.6);
+  background: #2858df;
+  box-shadow: 0 0 0 4px #2858df12;
+}
+.folio .folio-career h3 {
+  transition: color 250ms;
+}
+.folio .folio-career article:hover h3 {
+  color: #2858df;
+}
+.folio .folio-school:hover {
+  background: #f5f7fd;
+}
+.folio .folio-school {
+  padding: 17px;
+  margin-inline: -17px;
+  border-radius: 6px;
+}
+.folio .email-link svg {
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.folio .email-link:hover svg {
+  transform: translate(4px, -4px);
+}
+.folio .email-link {
+  transition: color 250ms;
+}
+.folio .email-link:hover {
+  color: #2858df;
+}
+.recognition-button:focus-visible,
+.recognition-close:focus-visible,
+.sculpture-controls button:focus-visible,
+.intro-choices button:focus-visible {
+  outline: 2px solid #2858df;
+  outline-offset: 5px;
+}
+.folio .mobile-nav {
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+}
+@media (max-width: 820px) {
+  .recognition-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 22px;
+  }
+  .recognition-image {
+    height: 270px;
+  }
+}
+@media (max-width: 540px) {
+  .recognition-section {
+    padding: 45px 0;
+  }
+  .recognition-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .recognition-image {
+    height: 280px;
+  }
+  .recognition-caption {
+    padding-top: 15px;
+  }
+  .recognition-dialog-content {
+    padding: 55px 17px 20px;
+  }
+}
+html[data-motion="off"] .folio .project .project-button,
+html[data-motion="off"] .recognition-button,
+html[data-motion="off"] .folio .folio-school,
+html[data-motion="off"] .folio .project .project-screen img,
+html[data-motion="off"] .recognition-expand,
+html[data-motion="off"] .folio .folio-career article::before,
+html[data-motion="off"] .folio .email-link svg {
+  transform: none !important;
+  transition: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio .project .project-button,
+  .recognition-button,
+  .folio .folio-school,
+  .folio .project .project-screen img,
+  .recognition-expand,
+  .folio .folio-career article::before,
+  .folio .email-link svg {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Work history reads as one route, with education as the point it starts from. */
+.folio-resume-grid {
+  grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(48px, 8vw, 150px);
+}
+.folio-resume-aside {
+  order: 0;
+}
+.folio-resume-grid > #experience {
+  order: 1;
+}
+.folio-resume-aside #education {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.folio-resume-aside #education::before {
+  display: block;
+  width: 42px;
+  height: 2px;
+  margin-bottom: 25px;
+  content: "";
+  background: #2858df;
+}
+.folio-journey {
+  position: relative;
+  margin-top: 35px;
+  padding-left: clamp(29px, 3vw, 48px);
+}
+.folio-journey::before {
+  position: absolute;
+  top: 6px;
+  bottom: 14px;
+  left: 7px;
+  width: 1px;
+  content: "";
+  background: linear-gradient(#b8c8e9 0%, #dce4f3 92%, transparent 100%);
+}
+.folio-journey .journey-signal {
+  position: absolute;
+  z-index: 2;
+  top: 6px;
+  left: 4px;
+  width: 9px;
+  height: 45px;
+  border: 0;
+  border-radius: 8px;
+  background: #2858df;
+  opacity: 0.65;
+  animation: journey-travel 8s linear infinite;
+}
+.folio-journey article {
+  min-height: 124px;
+  padding: 0 0 31px 0;
+  border-left: 0;
+}
+.folio-journey article::before {
+  display: none;
+}
+.folio-journey .career-meta {
+  min-height: 18px;
+}
+@keyframes journey-travel {
+  0% {
+    top: 6px;
+    opacity: 0;
+  }
+  10%,
+  80% {
+    opacity: 0.65;
+  }
+  100% {
+    top: calc(100% - 48px);
+    opacity: 0;
+  }
+}
+html[data-motion="off"] .folio-journey .journey-signal {
+  animation: none;
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio-journey .journey-signal {
+    animation: none;
+    opacity: 1;
+  }
+}
+@media (max-width: 820px) {
+  .folio-resume-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+  .folio-resume-aside {
+    order: 0;
+  }
+  .folio-resume-grid > #experience {
+    order: 1;
+  }
+  .folio-journey {
+    padding-left: 31px;
+  }
+  .folio-journey article::before {
+    left: -36px;
+  }
+}

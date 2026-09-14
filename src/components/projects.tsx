@@ -1,18 +1,13 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import {
-  ArrowUpRight,
-  ArrowRight,
-  X,
-  GithubLogo,
-  Check,
-  Code,
-} from "@phosphor-icons/react";
+import { ArrowUpRight, X, GithubLogo, Check } from "@phosphor-icons/react";
 import { projects, type Project } from "@/data/portfolio";
-import { ProjectVisual } from "./developer-scenes";
+import { TechIcon } from "./tech-icon";
 const filters = ["Semua", "Frontend", "Full stack"] as const;
 export function Projects() {
   const [filter, setFilter] = useState<(typeof filters)[number]>("Semua");
+  const [slide, setSlide] = useState(0);
   const [selected, setSelected] = useState<Project | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const visible = projects.filter(
@@ -66,32 +61,67 @@ export function Projects() {
           >
             <button
               className="project-button"
-              onClick={() => setSelected(project)}
+              onClick={() => {
+                setSlide(0);
+                setSelected(project);
+              }}
               aria-label={`Lihat detail proyek ${project.name}`}
               aria-haspopup="dialog"
             >
-              <ProjectVisual kind={project.id} />
+              {project.images ? (
+                <div className="project-screen">
+                  <Image
+                    src={project.images[0].src}
+                    alt={`${project.name}, ${project.images[0].label}, rekaan visual`}
+                    width={1672}
+                    height={941}
+                    sizes="(max-width: 760px) 100vw, 50vw"
+                  />
+                  <span className="screen-count">03 layar ↗</span>
+                </div>
+              ) : (
+                <div className="project-screen">
+                  <Image
+                    src={`/images/${project.id}-cover.png`}
+                    alt={`Visual konsep ${project.name}`}
+                    width={1536}
+                    height={1024}
+                    sizes="(max-width: 700px) 90vw, 480px"
+                  />
+                </div>
+              )}
               <div className="project-info">
                 <span className="project-type">{project.type}</span>
                 <h3>{project.name}</h3>
-                <p className="project-description">{project.description}</p>
-                <div className="project-stack">
-                  {project.stack.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
+                <p className="project-card-description">
+                  {project.description}
+                </p>
+                {project.stack.length > 0 && (
+                  <div className="project-card-stack">
+                    {project.stack.slice(0, 3).map((tech) => (
+                      <span key={tech}>
+                        <TechIcon name={tech} size={12} />
+                        {tech}
+                      </span>
+                    ))}
+                    {project.stack.length > 3 && (
+                      <span>+{project.stack.length - 3}</span>
+                    )}
+                  </div>
+                )}
+                <div className="project-card-footer">
+                  <span>
+                    {project.repo ? "Repository publik" : "Project profesional"}
+                  </span>
+                  <span>
+                    Lihat proyek <ArrowUpRight size={14} />
+                  </span>
                 </div>
-                <span className="project-detail-link">
-                  Kenali proyek ini <ArrowRight size={19} />
-                </span>
               </div>
             </button>
           </article>
         ))}
       </div>
-      <p className="project-footnote">
-        <Code size={15} aria-hidden="true" />
-        Setiap proyek punya cerita. Kodenya bisa kamu jelajahi di GitHub.
-      </p>
       <dialog
         ref={dialog}
         className="project-dialog"
@@ -111,7 +141,50 @@ export function Projects() {
             >
               <X size={24} />
             </button>
-            <ProjectVisual kind={selected.id} />
+            {selected.images ? (
+              <div className="project-gallery">
+                <Image
+                  src={selected.images[slide].src}
+                  alt={`${selected.name}, ${selected.images[slide].label}, rekaan visual`}
+                  width={1672}
+                  height={941}
+                  sizes="(max-width: 760px) 100vw, 900px"
+                />
+                <div
+                  className="gallery-controls"
+                  role="group"
+                  aria-label="Pilih gambar proyek"
+                >
+                  {selected.images.map((img, index) => (
+                    <button
+                      key={img.src}
+                      aria-pressed={slide === index}
+                      onClick={() => setSlide(index)}
+                    >
+                      <span>0{index + 1}</span> {img.label}
+                    </button>
+                  ))}
+                </div>
+                <p className="gallery-note">
+                  Rekaan visual berbasis referensi portfolio; detail tampilan
+                  dapat berbeda dari sistem asli.
+                </p>
+              </div>
+            ) : (
+              <div className="project-gallery">
+                <Image
+                  src={`/images/${selected.id}-cover.png`}
+                  alt={`Visual konsep ${selected.name}`}
+                  width={1536}
+                  height={1024}
+                  sizes="(max-width: 760px) 100vw, 900px"
+                />
+                <p className="gallery-note">
+                  Visual konsep proyek. Implementasi tersedia melalui repository
+                  publik.
+                </p>
+              </div>
+            )}
             <div className="dialog-body">
               <p className="project-type">{selected.type}</p>
               <h2 id="project-title">{selected.name}</h2>
@@ -127,21 +200,26 @@ export function Projects() {
               </ul>
               <div className="project-stack">
                 {selected.stack.map((tag) => (
-                  <span key={tag}>{tag}</span>
+                  <span key={tag}>
+                    <TechIcon name={tag} size={14} />
+                    {tag}
+                  </span>
                 ))}
               </div>
-              <div className="dialog-actions">
-                <a
-                  className="button button-primary"
-                  href={selected.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GithubLogo size={20} />
-                  Jelajahi kode
-                  <ArrowUpRight size={18} />
-                </a>
-              </div>
+              {selected.repo && (
+                <div className="dialog-actions">
+                  <a
+                    className="button button-primary"
+                    href={selected.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <GithubLogo size={20} />
+                    Jelajahi kode
+                    <ArrowUpRight size={18} />
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         )}
