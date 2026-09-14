@@ -95,6 +95,10 @@ Edit [src/data/portfolio.ts](./src/data/portfolio.ts) untuk mengganti nama, ring
 
 Tema dibuat terang secara sengaja. Tombol animasi di footer dapat menjeda seluruh loop, dan browser dengan preferensi reduced motion akan otomatis melihat versi yang lebih tenang.
 
+## 📈 Memperbarui kontribusi GitHub
+
+Panduan untuk menarik kalender kontribusi resmi, termasuk aktivitas privat yang ditampilkan secara anonim, tersedia di [docs/github-contributions.md](./docs/github-contributions.md). Hasil ekspor mentah disimpan di folder lokal yang sudah masuk `.gitignore`.
+
 ## 📌 Catatan konten
 
 - Profil profesional: [LinkedIn Zakian](https://www.linkedin.com/in/zakian-maulana-syaifulloh/)
