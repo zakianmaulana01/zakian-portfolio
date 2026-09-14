@@ -1,4 +1,4 @@
-import { GithubLogo, LinkedinLogo, ArrowUpRight, GitBranch, GraduationCap } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight, GitBranch, GraduationCap, BracketsCurly, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { profile, experience, education, capabilities } from "@/data/portfolio";
 import { Navigation } from "@/components/navigation";
 import { Projects } from "@/components/projects";
@@ -42,32 +42,43 @@ export default function Home() {
         <div className="folio">
           <SectionMotion />
           <Hero />
-          <div className="folio-infobar">
-            <p>
-              <strong>4+ tahun</strong> mengembangkan web
-            </p>
-            <p>
-              IT Programmer <span>di PT Arita Prima Indonesia Tbk</span>
-            </p>
-            <div>
-              <a
-                href={profile.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub Zakian"
-              >
-                <GithubLogo size={20} />
-              </a>
-              <a
-                href={profile.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn Zakian"
-              >
-                <LinkedinLogo size={20} />
-              </a>
-            </div>
           </div>
+
+        <div className="container hero-bottom">
+          <div className="hero-metric">
+            <strong>
+              4<span>+</span>
+            </strong>
+            <span>
+              tahun pengalaman
+              <br />
+              mengembangkan web
+            </span>
+          </div>
+          <div className="hero-metric">
+            <span className="metric-symbol">
+              <BracketsCurly size={30} />
+            </span>
+            <span>
+              Dari logika bisnis
+              <br />
+              sampai antarmuka
+            </span>
+          </div>
+          <div className="hero-metric">
+            <span className="metric-symbol">
+              <GitBranch size={29} />
+            </span>
+            <span>
+              Terus membangun.
+              <br />
+              Terus belajar.
+            </span>
+          </div>
+          <a href="#about" className="hero-next">
+            Tentang saya
+            <ArrowRight size={20} />
+          </a>
         </div>
 
         <section

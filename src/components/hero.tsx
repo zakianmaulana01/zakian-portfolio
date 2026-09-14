@@ -4,27 +4,9 @@ import { ArrowDown, ArrowUpRight } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { HeroSculpture } from "@/components/hero-sculpture";
 
-const fields = [
-  {
-    name: "ERP manufaktur",
-    text: "Di PT Dasa Windu Agung, saya mengembangkan ERP untuk produksi, pengiriman, quality control, dan HR.",
-    stack: "PHP · Laravel · MySQL · SQL Server",
-  },
-  {
-    name: "Sistem campaign",
-    text: "Di PT Kinarya Alihdaya Mandiri, saya merawat fitur sistem campaign Telkomsel dan mengoptimalkan query SQL untuk pelaporan.",
-    stack: "Pengembangan web · SQL · Pelaporan",
-  },
-  {
-    name: "Aplikasi interaktif",
-    text: "Saya juga mengeksplorasi aplikasi percakapan, simulator kasir, dan dashboard pemantauan industri. Karyanya bisa kamu lihat di bawah.",
-    stack: "React · Next.js · TypeScript",
-  },
-];
 const role = "Web Developer / IT Programmer";
 
 export function Hero() {
-  const [active, setActive] = useState(0);
   const [typed, setTyped] = useState("");
   useEffect(() => {
     let index = 0;
@@ -77,33 +59,6 @@ export function Hero() {
           </div>
         </div>
         <HeroSculpture />
-      </div>
-      <div className="intro-body">
-        <div className="intro-expertise">
-          <p className="intro-expertise-label">Yang pernah saya kerjakan</p>
-          <div className="intro-choices" aria-label="Bidang pengalaman">
-            {fields.map((field, index) => (
-              <button
-                key={field.name}
-                type="button"
-                aria-pressed={active === index}
-                aria-controls="intro-field-detail"
-                onClick={() => setActive(index)}
-              >
-                <span>{field.name}</span>
-                <span aria-hidden="true">{active === index ? "−" : "+"}</span>
-              </button>
-            ))}
-          </div>
-          <div
-            id="intro-field-detail"
-            className="intro-field-detail"
-            aria-live="polite"
-          >
-            <p key={fields[active].name}>{fields[active].text}</p>
-            <span>{fields[active].stack}</span>
-          </div>
-        </div>
       </div>
     </section>
   );
