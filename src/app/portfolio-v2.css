@@ -730,7 +730,8 @@ body:has(.folio) {
 .folio-tool-deck:hover .folio-tool-card {
   transform: rotate(var(--tool-tilt)) translate(var(--tool-spread), -14px);
 }
-.folio-tool-card:hover {
+.folio-tool-deck:hover .folio-tool-card:hover {
+  /* Increased specificity to override deck hover */
   z-index: 2;
   box-shadow: 0 24px 38px #3442392e;
   transform: rotate(0deg) translate(var(--tool-spread), -28px) scale(1.05);
