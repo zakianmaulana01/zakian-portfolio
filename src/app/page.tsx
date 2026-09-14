@@ -87,16 +87,16 @@ export default function Home() {
           className="section container about-section"
           aria-labelledby="about-title"
         >
-          <div className="section-heading">
-            <span className="section-code">&lt;tentang-saya&gt;</span>
-            <h2 id="about-title">
-              Lebih dari
-              <br />
-              <span>sekadar menulis kode.</span>
-            </h2>
-          </div>
           <div className="about-grid">
             <div className="about-copy">
+              <div className="section-heading">
+                <span className="section-code">&lt;tentang-saya&gt;</span>
+                <h2 id="about-title">
+                  Lebih dari
+                  <br />
+                  <span>sekadar menulis kode.</span>
+                </h2>
+              </div>
               <p className="about-lead">
                 Saya senang ketika sesuatu yang rumit akhirnya terasa sederhana.
               </p>
