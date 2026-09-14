@@ -1,4 +1,4 @@
-import { ArrowUpRight, GitBranch, GraduationCap, BracketsCurly, User } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight, GitBranch, GraduationCap, BracketsCurly, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { profile, experience, education, capabilities } from "@/data/portfolio";
 import { Navigation } from "@/components/navigation";
 import { Projects } from "@/components/projects";
@@ -75,15 +75,9 @@ export default function Home() {
               Terus belajar.
             </span>
           </div>
-          <a href="#about" className="hero-metric" style={{ textDecoration: "none" }}>
-            <span className="metric-symbol">
-              <User size={29} />
-            </span>
-            <span>
-              Profil
-              <br />
-              lengkap
-            </span>
+          <a href="#about" className="hero-next">
+            Tentang saya
+            <ArrowRight size={20} />
           </a>
         </div>
 
