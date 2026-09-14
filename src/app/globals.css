@@ -785,10 +785,23 @@ img {
   z-index: 0;
 }
 @keyframes workflow-line {
-  0%, 5% { width: 0%; opacity: 0; }
-  6% { opacity: 1; }
-  80% { width: 76%; opacity: 1; }
-  85%, 100% { width: 76%; opacity: 0; }
+  0%,
+  5% {
+    width: 0%;
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  80% {
+    width: 76%;
+    opacity: 1;
+  }
+  85%,
+  100% {
+    width: 76%;
+    opacity: 0;
+  }
 }
 .workflow-step {
   display: flex;
@@ -799,6 +812,8 @@ img {
   min-width: 0;
 }
 .workflow-node {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1982,6 +1997,8 @@ img {
   animation: orbit-turn 24s linear infinite;
 }
 .workflow-node {
+  position: relative;
+  z-index: 2;
   animation: workflow-beat 8s calc(var(--step) * 2s) ease-in-out infinite;
 }
 .diagram-orb {
@@ -2079,21 +2096,24 @@ img {
   }
 }
 @keyframes workflow-beat {
-  0%, 100% {
+  0%,
+  100% {
     background: #fff;
     color: var(--accent);
     transform: scale(1);
     box-shadow: 0 4px 7px #395eed08;
     border-color: #b9cbff;
   }
-  5%, 25% {
+  5%,
+  25% {
     background: var(--accent);
     color: #fff;
     transform: scale(1.12);
     box-shadow: 0 6px 14px #395eed33;
     border-color: var(--accent);
   }
-  35%, 95% {
+  35%,
+  95% {
     background: #fff;
     color: var(--accent);
     transform: scale(1);
@@ -2225,6 +2245,7 @@ img {
   }
 }
 .loop-scene[data-active="false"] .loop,
+.loop-scene[data-active="false"] .workflow-track:after,
 .code-scene:focus-within .editor-window {
   animation-play-state: paused;
 }
@@ -3029,6 +3050,8 @@ html[data-motion="off"] * {
     margin-block: 31px 25px;
   }
   .workflow-node {
+    position: relative;
+    z-index: 2;
     width: 39px;
     height: 39px;
     font-size: 10px;
