@@ -727,14 +727,11 @@ body:has(.folio) {
   transform: rotate(var(--tool-tilt)) translateY(var(--tool-lift));
   transition: transform 320ms cubic-bezier(0.22, 0.8, 0.24, 1), box-shadow 320ms ease;
 }
-.folio-tool-deck:hover .folio-tool-card {
-  transform: rotate(var(--tool-tilt)) translate(var(--tool-spread), -14px);
-}
 .folio-tool-deck:hover .folio-tool-card:hover {
   /* Increased specificity to override deck hover */
   z-index: 2;
   box-shadow: 0 24px 38px #3442392e;
-  transform: rotate(0deg) translate(var(--tool-spread), -28px) scale(1.05);
+  transform: rotate(0deg) translateY(calc(var(--tool-lift) - 28px)) scale(1.15);
 }
 .folio-tool-card .tech-icon-react { filter: invert(68%) sepia(74%) saturate(544%) hue-rotate(149deg) brightness(99%) contrast(104%); }
 .folio-tool-card .tech-icon-typescript { filter: invert(42%) sepia(36%) saturate(1031%) hue-rotate(174deg) brightness(92%) contrast(89%); }
