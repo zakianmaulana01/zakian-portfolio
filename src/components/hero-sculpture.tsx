@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowClockwise } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 import type { mountHeroScene } from "@/lib/hero-scene";
 
@@ -43,34 +42,7 @@ export function HeroSculpture() {
       <span className="sculpture-note sculpture-note-bottom" aria-hidden="true">
         kode → aplikasi
       </span>
-      {ready && (
-        <div className="sculpture-controls">
-          <span>Geser untuk memutar</span>
-          <div>
-            <button
-              type="button"
-              aria-label="Putar objek 3D ke kiri"
-              onClick={() => controls.current?.rotate(-1)}
-            >
-              ←
-            </button>
-            <button
-              type="button"
-              aria-label="Putar objek 3D ke kanan"
-              onClick={() => controls.current?.rotate(1)}
-            >
-              →
-            </button>
-            <button
-              type="button"
-              aria-label="Atur ulang posisi 3D"
-              onClick={() => controls.current?.reset()}
-            >
-              <ArrowClockwise size={17} />
-            </button>
-          </div>
-        </div>
-      )}
+
     </div>
   );
 }
