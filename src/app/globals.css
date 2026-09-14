@@ -774,6 +774,22 @@ img {
   height: 1px;
   background: #cbd7f6;
 }
+.workflow-track:after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  top: 21px;
+  height: 1.5px;
+  background: var(--accent);
+  animation: workflow-line 8s linear infinite;
+  z-index: 0;
+}
+@keyframes workflow-line {
+  0%, 5% { width: 0%; opacity: 0; }
+  6% { opacity: 1; }
+  80% { width: 76%; opacity: 1; }
+  85%, 100% { width: 76%; opacity: 0; }
+}
 .workflow-step {
   display: flex;
   flex-direction: column;
@@ -2063,13 +2079,26 @@ img {
   }
 }
 @keyframes workflow-beat {
-  0%,
-  30%,
-  100% {
+  0%, 100% {
+    background: #fff;
+    color: var(--accent);
     transform: scale(1);
+    box-shadow: 0 4px 7px #395eed08;
+    border-color: #b9cbff;
   }
-  12% {
-    transform: scale(1.19);
+  5%, 25% {
+    background: var(--accent);
+    color: #fff;
+    transform: scale(1.12);
+    box-shadow: 0 6px 14px #395eed33;
+    border-color: var(--accent);
+  }
+  35%, 95% {
+    background: #fff;
+    color: var(--accent);
+    transform: scale(1);
+    box-shadow: 0 4px 7px #395eed08;
+    border-color: #b9cbff;
   }
 }
 @keyframes node-float {
