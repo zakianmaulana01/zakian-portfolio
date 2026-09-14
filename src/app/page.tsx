@@ -160,8 +160,20 @@ export default function Home() {
         </section>
 
         <div className="folio">
-          <Recognition />
-          <GitHubActivity />
+          <section id="work" className="folio-work" aria-labelledby="work-title">
+            <div className="folio-section-heading">
+              <div className="folio-section-label">
+                <span>05 / KARYA</span>
+                <h2 id="work-title">Dari ide ke implementasi.</h2>
+              </div>
+              <p>
+                Sistem yang saya kerjakan.
+                <br />
+                Eksplorasi yang terus berlanjut.
+              </p>
+            </div>
+            <Projects />
+          </section>
           <section
             id="skills"
             className="folio-tools"
@@ -184,20 +196,8 @@ export default function Home() {
               ))}
             </div>
           </section>
-          <section id="work" className="folio-work" aria-labelledby="work-title">
-            <div className="folio-section-heading">
-              <div className="folio-section-label">
-                <span>05 / KARYA</span>
-                <h2 id="work-title">Dari ide ke implementasi.</h2>
-              </div>
-              <p>
-                Sistem yang saya kerjakan.
-                <br />
-                Eksplorasi yang terus berlanjut.
-              </p>
-            </div>
-            <Projects />
-          </section>
+          <Recognition />
+          <GitHubActivity />
           <section
             id="contact"
             className="folio-contact"
