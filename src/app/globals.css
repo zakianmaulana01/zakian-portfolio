@@ -1981,7 +1981,7 @@ img {
   animation-delay: -3.5s;
 }
 .career-flow {
-  animation: career-travel 8s linear infinite;
+  animation: career-travel 24s linear infinite;
 }
 .receipt-scene {
   animation: receipt-float 6s ease-in-out infinite;
