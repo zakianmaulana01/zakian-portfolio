@@ -509,3 +509,73 @@ export function ContactSignal() {
     </LoopScene>
   );
 }
+
+export function CareerTimeline({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const container = ref.current;
+    if (!container) return;
+
+    let inViewport = true;
+    let animationFrameId: number;
+
+    const updateHeight = () => {
+      container.style.setProperty('--timeline-height', `${container.offsetHeight}px`);
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        inViewport = entry.isIntersecting;
+        container.dataset.active = String(inViewport && !document.hidden);
+      },
+      { rootMargin: "80px" }
+    );
+    observer.observe(container);
+    
+    const resizeObserver = new ResizeObserver(updateHeight);
+    resizeObserver.observe(container);
+    updateHeight();
+
+    const flow = container.querySelector('.career-flow') as HTMLElement;
+    const nodes = Array.from(container.querySelectorAll('.career-node')) as HTMLElement[];
+
+    const checkIntersections = () => {
+      if (inViewport && !document.hidden && flow) {
+        const flowRect = flow.getBoundingClientRect();
+        
+        nodes.forEach(node => {
+          const nodeRect = node.getBoundingClientRect();
+          const nodeCenter = nodeRect.top + nodeRect.height / 2;
+          
+          if (flowRect.bottom >= nodeCenter && flowRect.top <= nodeCenter) {
+            node.classList.add('career-node-active');
+          } else {
+            node.classList.remove('career-node-active');
+          }
+        });
+      }
+      animationFrameId = requestAnimationFrame(checkIntersections);
+    };
+
+    animationFrameId = requestAnimationFrame(checkIntersections);
+
+    return () => {
+      observer.disconnect();
+      resizeObserver.disconnect();
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  return (
+    <div ref={ref} className={`loop-scene ${className}`} data-active="false">
+      {children}
+    </div>
+  );
+}

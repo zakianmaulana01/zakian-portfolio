@@ -8,7 +8,7 @@ import { TechIcon } from "@/components/tech-icon";
 import { Hero } from "@/components/hero";
 import { Recognition } from "@/components/recognition";
 import { SectionMotion } from "@/components/section-motion";
-import { Workflow, LoopScene } from "@/components/developer-scenes";
+import { Workflow, CareerTimeline } from "@/components/developer-scenes";
 import "./portfolio-v2.css";
 import "./intro-wide.css";
 import "./section-details.css";
@@ -137,7 +137,7 @@ export default function Home() {
               Belajar dari kebutuhan nyata, bertumbuh bersama tim.
             </p>
           </div>
-          <LoopScene className="career-timeline">
+          <CareerTimeline className="career-timeline">
             <span className="career-flow loop" aria-hidden="true" />
             {experience.map((job, index) => (
               <article className="experience-row" key={job.company}>
@@ -163,7 +163,7 @@ export default function Home() {
                 </span>
               </article>
             ))}
-          </LoopScene>
+          </CareerTimeline>
           <a
             href={profile.linkedin}
             target="_blank"
