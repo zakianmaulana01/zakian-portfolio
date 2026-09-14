@@ -4,7 +4,7 @@ import { Navigation } from "@/components/navigation";
 import { Projects } from "@/components/projects";
 import { ContactActions, FooterControls } from "@/components/contact";
 import { GitHubActivity } from "@/components/github-activity";
-import { TechIcon } from "@/components/tech-icon";
+import { AnimatedTools } from "@/components/animated-tools";
 import { Hero } from "@/components/hero";
 import { ExperienceSection } from "@/components/experience";
 import { Recognition } from "@/components/recognition";
@@ -187,14 +187,7 @@ export default function Home() {
                 digital.
               </p>
             </div>
-            <div className="folio-tool-deck" role="list" aria-label="Tech stack">
-              {tools.map((tool) => (
-                <article key={tool} className="folio-tool-card" role="listitem">
-                  <TechIcon name={tool} size={42} />
-                  <span>{tool}</span>
-                </article>
-              ))}
-            </div>
+            <AnimatedTools tools={tools} />
           </section>
           <Recognition />
           <GitHubActivity />

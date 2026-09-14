@@ -735,10 +735,6 @@ body:has(.folio) {
   box-shadow: 0 24px 38px #3442392e;
   transform: rotate(0deg) translate(var(--tool-spread), -28px) scale(1.05);
 }
-.folio-tool-card span {
-  color: #3f4841;
-  font: 9px var(--mono);
-}
 .folio-tool-card .tech-icon-react { filter: invert(68%) sepia(74%) saturate(544%) hue-rotate(149deg) brightness(99%) contrast(104%); }
 .folio-tool-card .tech-icon-typescript { filter: invert(42%) sepia(36%) saturate(1031%) hue-rotate(174deg) brightness(92%) contrast(89%); }
 .folio-tool-card .tech-icon-tailwindcss { filter: invert(59%) sepia(77%) saturate(630%) hue-rotate(145deg) brightness(94%) contrast(97%); }
@@ -2044,10 +2040,6 @@ html[data-motion="off"] .hero-interactive {
   .folio-tool-card img {
     width: 30px;
     height: 30px;
-  }
-  .folio-tool-card span,
-  .folio-tool-card i {
-    font-size: 7px;
   }
   .folio-tool-card:nth-child(n + 6) {
     display: none;
