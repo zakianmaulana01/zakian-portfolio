@@ -8,3 +8,8 @@ playwright-report/
 test-results/
 .DS_Store
 artifacts/
+
+# GitHub contribution exports can be refreshed locally but must never contain secrets in Git.
+.github-contributions/
+github-contributions.local.json
+src/data/github-contributions.local.json
