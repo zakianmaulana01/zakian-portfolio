@@ -819,12 +819,12 @@ img {
   box-shadow: 0 4px 7px #395eed08;
 }
 .workflow-step > strong {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 650;
   margin-top: 15px;
 }
 .workflow-step > span:last-child {
-  font-size: 12px;
+  font-size: 10px;
   color: var(--muted);
   margin-top: 7px;
   line-height: 1.5;
@@ -2470,7 +2470,7 @@ html[data-motion="off"] * {
     padding-inline: 19px;
   }
   .workflow-step > span:last-child {
-    font-size: 10px;
+    font-size: 8px;
   }
   .experience-row {
     grid-template-columns: 160px 1fr 24px;
@@ -2634,10 +2634,10 @@ html[data-motion="off"] * {
     gap: 7px;
   }
   .workflow-step > strong {
-    font-size: 13px;
+    font-size: 11px;
   }
   .workflow-step > span:last-child {
-    font-size: 10px;
+    font-size: 8px;
   }
   .stack-node-web {
     left: 0;
@@ -3051,10 +3051,10 @@ html[data-motion="off"] * {
     top: 19px;
   }
   .workflow-step > strong {
-    font-size: 13px;
+    font-size: 11px;
   }
   .workflow-step > span:last-child {
-    font-size: 10px;
+    font-size: 8px;
   }
   .workflow-code {
     font-size: 8px;
