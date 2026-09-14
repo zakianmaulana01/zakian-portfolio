@@ -17,7 +17,7 @@ export default function Home() {
   const tools = capabilities.flatMap((group) => group.skills);
 
   return (
-    <div className="folio">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -31,37 +31,42 @@ export default function Home() {
           }).replace(/</g, "\\u003c"),
         }}
       />
-      <a className="skip-link" href="#main">
-        Lewati ke konten
-      </a>
-      <Navigation />
+      <div className="folio">
+        <a className="skip-link" href="#main">
+          Lewati ke konten
+        </a>
+        <Navigation />
+      </div>
+
       <main id="main">
-        <SectionMotion />
-        <Hero />
-        <div className="folio-infobar">
-          <p>
-            <strong>4+ tahun</strong> mengembangkan web
-          </p>
-          <p>
-            IT Programmer <span>di PT Arita Prima Indonesia Tbk</span>
-          </p>
-          <div>
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub Zakian"
-            >
-              <GithubLogo size={20} />
-            </a>
-            <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn Zakian"
-            >
-              <LinkedinLogo size={20} />
-            </a>
+        <div className="folio">
+          <SectionMotion />
+          <Hero />
+          <div className="folio-infobar">
+            <p>
+              <strong>4+ tahun</strong> mengembangkan web
+            </p>
+            <p>
+              IT Programmer <span>di PT Arita Prima Indonesia Tbk</span>
+            </p>
+            <div>
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Zakian"
+              >
+                <GithubLogo size={20} />
+              </a>
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Zakian"
+              >
+                <LinkedinLogo size={20} />
+              </a>
+            </div>
           </div>
         </div>
 
@@ -194,63 +199,68 @@ export default function Home() {
           </div>
         </section>
 
-        <Recognition />
-        <GitHubActivity />
-        <section
-          id="skills"
-          className="folio-tools"
-          aria-labelledby="skills-title"
-        >
-          <div className="folio-tools-heading">
-            <span className="folio-kicker">TOOLS / STACK</span>
-            <h2 id="skills-title">Alat yang saya gunakan.</h2>
-            <p>
-              Perangkat yang saya gunakan untuk merancang dan membangun produk
-              digital.
-            </p>
-          </div>
-          <div className="folio-tool-deck" role="list" aria-label="Tech stack">
-            {tools.map((tool) => (
-              <article key={tool} className="folio-tool-card" role="listitem">
-                <TechIcon name={tool} size={42} />
-                <span>{tool}</span>
-              </article>
-            ))}
-          </div>
-        </section>
-        <section id="work" className="folio-work" aria-labelledby="work-title">
-          <div className="folio-section-heading">
-            <div className="folio-section-label">
-              <span>05 / KARYA</span>
-              <h2 id="work-title">Dari ide ke implementasi.</h2>
+        <div className="folio">
+          <Recognition />
+          <GitHubActivity />
+          <section
+            id="skills"
+            className="folio-tools"
+            aria-labelledby="skills-title"
+          >
+            <div className="folio-tools-heading">
+              <span className="folio-kicker">TOOLS / STACK</span>
+              <h2 id="skills-title">Alat yang saya gunakan.</h2>
+              <p>
+                Perangkat yang saya gunakan untuk merancang dan membangun produk
+                digital.
+              </p>
             </div>
-            <p>
-              Sistem yang saya kerjakan.
-              <br />
-              Eksplorasi yang terus berlanjut.
-            </p>
-          </div>
-          <Projects />
-        </section>
-        <section
-          id="contact"
-          className="folio-contact"
-          aria-labelledby="contact-title"
-        >
-          <div>
-            <p className="folio-kicker">PUNYA PROYEK ATAU PELUANG KERJA?</p>
-            <h2 id="contact-title">Mari mulai percakapan.</h2>
-            <p>
-              Saya siap mendengar kebutuhan tim dan cerita di balik proyekmu.
-            </p>
-          </div>
-          <ContactActions />
-        </section>
+            <div className="folio-tool-deck" role="list" aria-label="Tech stack">
+              {tools.map((tool) => (
+                <article key={tool} className="folio-tool-card" role="listitem">
+                  <TechIcon name={tool} size={42} />
+                  <span>{tool}</span>
+                </article>
+              ))}
+            </div>
+          </section>
+          <section id="work" className="folio-work" aria-labelledby="work-title">
+            <div className="folio-section-heading">
+              <div className="folio-section-label">
+                <span>05 / KARYA</span>
+                <h2 id="work-title">Dari ide ke implementasi.</h2>
+              </div>
+              <p>
+                Sistem yang saya kerjakan.
+                <br />
+                Eksplorasi yang terus berlanjut.
+              </p>
+            </div>
+            <Projects />
+          </section>
+          <section
+            id="contact"
+            className="folio-contact"
+            aria-labelledby="contact-title"
+          >
+            <div>
+              <p className="folio-kicker">PUNYA PROYEK ATAU PELUANG KERJA?</p>
+              <h2 id="contact-title">Mari mulai percakapan.</h2>
+              <p>
+                Saya siap mendengar kebutuhan tim dan cerita di balik proyekmu.
+              </p>
+            </div>
+            <ContactActions />
+          </section>
+        </div>
       </main>
-      <footer className="folio-footer">
-        <p>© {new Date().getFullYear()} Zakian Maulana Syaifulloh</p>
-        <FooterControls />
-      </footer>
-    </div>
+      
+      <div className="folio">
+        <footer className="folio-footer">
+          <p>© {new Date().getFullYear()} Zakian Maulana Syaifulloh</p>
+          <FooterControls />
+        </footer>
+      </div>
+    </>
   );
 }
