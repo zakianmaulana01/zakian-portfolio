@@ -139,7 +139,7 @@ export default function Home() {
           </div>
           <CareerTimeline className="career-timeline">
             <span className="career-flow loop" aria-hidden="true" />
-            {experience.map((job, index) => (
+            {experience.slice(0, 4).map((job, index) => (
               <article className="experience-row" key={job.company}>
                 <div
                   className={`career-node ${job.current ? "career-node-current" : ""}`}
