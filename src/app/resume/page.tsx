@@ -5,6 +5,7 @@ import {
   education,
   capabilities,
   projects,
+  recognition,
 } from "@/data/portfolio";
 import { ResumeActions } from "@/components/resume-actions";
 
@@ -50,7 +51,7 @@ export default function Resume() {
         <section className="resume-section">
           <h2>Pengalaman kerja</h2>
           {experience.map((job) => (
-            <div key={job.company} className="resume-entry">
+            <div key={`${job.company}-${job.role}`} className="resume-entry">
               <div className="resume-entry-heading">
                 <h3>{job.company}</h3>
                 <span>{job.period}</span>
@@ -75,6 +76,19 @@ export default function Resume() {
           ))}
         </section>
         <section className="resume-section">
+          <h2>Penghargaan</h2>
+          {recognition
+            .filter((item) => item.kind.startsWith("Penghargaan"))
+            .map((item) => (
+              <div key={item.id} className="resume-entry">
+                <h3>{item.title}</h3>
+                <p>
+                  {item.issuer} · {item.description}
+                </p>
+              </div>
+            ))}
+        </section>
+        <section className="resume-section">
           <h2>Proyek pilihan</h2>
           {projects.map((project) => (
             <div key={project.id} className="resume-entry">
@@ -86,9 +100,11 @@ export default function Resume() {
               <p className="resume-project-stack">
                 {project.stack.join(" · ")}
               </p>
-              <a className="resume-project-link" href={project.repo}>
-                {project.repo.replace("https://", "")}
-              </a>
+              {project.repo && (
+                <a className="resume-project-link" href={project.repo}>
+                  {project.repo.replace("https://", "")}
+                </a>
+              )}
             </div>
           ))}
         </section>
