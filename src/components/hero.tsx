@@ -29,8 +29,8 @@ export function Hero() {
             <span>Bekasi, Indonesia</span>
           </div>
           <h1 id="hero-title">
-            Zakian <span>Maulana.</span>
-            <span className="sr-only"> Syaifulloh</span>
+            Zakian <span>Maulana S.</span>
+            <span className="sr-only">yaifulloh</span>
           </h1>
           <p className="intro-role">
             <span aria-hidden="true">
@@ -40,9 +40,7 @@ export function Hero() {
             <span className="sr-only">{role}</span>
           </p>
           <p className="intro-statement">
-            Menulis kode,
-            <br />
-            <em>memahami manusia.</em>
+            Menulis kode, <em>memahami manusia.</em>
           </p>
           <p className="intro-bio">
             Saya mengembangkan aplikasi bisnis dan sistem internal. Dari alur

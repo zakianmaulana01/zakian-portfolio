@@ -379,9 +379,6 @@
     margin-block: 25px;
     letter-spacing: -0.065em;
   }
-  .intro-wide h1 > span:not(.sr-only) {
-    display: block;
-  }
   .intro-role {
     font-size: 10px;
   }
@@ -446,9 +443,6 @@ html[data-motion="off"] .intro-wide *::after {
   line-height: 0.99;
   letter-spacing: -0.07em;
   margin: 29px 0 22px;
-}
-.intro-main h1 > span:not(.sr-only) {
-  display: block;
 }
 .intro-main .intro-role {
   font-size: 11px;
