@@ -1,14 +1,15 @@
 import { ArrowUpRight, GitBranch, GraduationCap, BracketsCurly, ArrowRight } from "@phosphor-icons/react/dist/ssr";
-import { profile, experience, education, capabilities } from "@/data/portfolio";
+import { profile, education, capabilities } from "@/data/portfolio";
 import { Navigation } from "@/components/navigation";
 import { Projects } from "@/components/projects";
 import { ContactActions, FooterControls } from "@/components/contact";
 import { GitHubActivity } from "@/components/github-activity";
 import { TechIcon } from "@/components/tech-icon";
 import { Hero } from "@/components/hero";
+import { ExperienceSection } from "@/components/experience";
 import { Recognition } from "@/components/recognition";
 import { SectionMotion } from "@/components/section-motion";
-import { Workflow, CareerTimeline } from "@/components/developer-scenes";
+import { Workflow } from "@/components/developer-scenes";
 import "./portfolio-v2.css";
 import "./intro-wide.css";
 import "./section-details.css";
@@ -121,59 +122,7 @@ export default function Home() {
           </span>
         </section>
 
-        <section
-          id="experience"
-          className="section container experience-section"
-          aria-labelledby="experience-title"
-        >
-          <div className="section-heading">
-            <span className="section-code">&lt;pengalaman&gt;</span>
-            <h2 id="experience-title">
-              Perjalanan saya,
-              <br />
-              <span>satu langkah setiap waktu.</span>
-            </h2>
-            <p className="section-description">
-              Belajar dari kebutuhan nyata, bertumbuh bersama tim.
-            </p>
-          </div>
-          <CareerTimeline className="career-timeline">
-            <span className="career-flow loop" aria-hidden="true" />
-            {experience.slice(0, 4).map((job, index) => (
-              <article className="experience-row" key={job.company}>
-                <div
-                  className={`career-node ${job.current ? "career-node-current" : ""}`}
-                  aria-hidden="true"
-                >
-                  {job.current ? <GitBranch size={17} /> : <span />}
-                </div>
-                <div className="experience-period">
-                  {job.period}
-                  {job.current && (
-                    <span className="current-role">Saat ini</span>
-                  )}
-                </div>
-                <div className="experience-main">
-                  <span className="experience-role">{job.role}</span>
-                  <h3>{job.company}</h3>
-                  <p>{job.description}</p>
-                </div>
-                <span className="career-index" aria-hidden="true">
-                  {String(experience.length - index).padStart(2, "0")}
-                </span>
-              </article>
-            ))}
-          </CareerTimeline>
-          <a
-            href={profile.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-link experience-link"
-          >
-            Lihat riwayat lengkap
-            <ArrowUpRight size={18} />
-          </a>
-        </section>
+        <ExperienceSection />
 
         <section
           id="education"
