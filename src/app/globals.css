@@ -90,6 +90,12 @@ img {
 .section {
   padding-block: 108px;
 }
+.about-section {
+  padding-bottom: 30px;
+}
+.experience-section {
+  padding-top: 30px;
+}
 .section-heading {
   margin-bottom: 46px;
 }
@@ -2780,6 +2786,12 @@ html[data-motion="off"] * {
   }
   .section {
     padding-block: 70px;
+  }
+  .about-section {
+    padding-bottom: 20px;
+  }
+  .experience-section {
+    padding-top: 20px;
   }
   .section-heading {
     margin-bottom: 31px;
