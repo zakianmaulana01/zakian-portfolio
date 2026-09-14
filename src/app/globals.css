@@ -774,16 +774,7 @@ img {
   height: 1px;
   background: #cbd7f6;
 }
-.workflow-track:after {
-  content: "";
-  position: absolute;
-  left: 12%;
-  top: 21px;
-  height: 1.5px;
-  background: var(--accent);
-  animation: workflow-line 8s linear infinite;
-  z-index: 0;
-}
+
 @keyframes workflow-line {
   0%,
   5% {
@@ -824,7 +815,7 @@ img {
   background: #fff;
   color: var(--accent);
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 14px;
   box-shadow: 0 4px 7px #395eed08;
 }
 .workflow-step > strong {
@@ -2245,7 +2236,7 @@ img {
   }
 }
 .loop-scene[data-active="false"] .loop,
-.loop-scene[data-active="false"] .workflow-track:after,
+
 .code-scene:focus-within .editor-window {
   animation-play-state: paused;
 }
@@ -3736,4 +3727,14 @@ html[data-motion="off"] * {
   .loop {
     animation: none !important;
   }
+}
+
+.workflow-progress-line {
+  position: absolute;
+  left: 12%;
+  top: 21px;
+  height: 1.5px;
+  background: var(--accent);
+  animation: workflow-line 8s linear infinite;
+  z-index: 1;
 }

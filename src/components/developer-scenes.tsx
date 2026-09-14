@@ -327,6 +327,7 @@ export function Workflow() {
         className="workflow-track"
         aria-label="Proses kerja: pahami, rancang, bangun, lalu rapikan"
       >
+        <span className="workflow-progress-line loop" aria-hidden="true" />
         {steps.map((step, index) => (
           <div
             className="workflow-step"
