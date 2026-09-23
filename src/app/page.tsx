@@ -17,6 +17,7 @@ import { Navigation } from "@/components/navigation";
 import { MagneticLink } from "@/components/motion";
 import { Projects } from "@/components/projects";
 import { ContactActions, FooterControls } from "@/components/contact";
+import { PortfolioChat } from "@/components/portfolio-chat";
 import {
   CodeIntro,
   TypewriterRole,
@@ -406,6 +407,7 @@ export default function Home() {
         </span>
         <FooterControls />
       </footer>
+      <PortfolioChat />
     </>
   );
 }
